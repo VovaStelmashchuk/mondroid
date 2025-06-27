@@ -66,4 +66,18 @@ Then, you can install the new signed APK:
 
 ```bash
 adb install build/app/outputs/flutter-apk/app-release.apk
-``` 
+```
+
+### 5. Setup CI
+
+To enable the GitHub Actions workflow to automatically build and sign your APK, you need to add the following secrets to your repository at **Settings** > **Secrets and variables** > **Actions**.
+
+- **`KEYSTORE_JKS_BASE64`**: The base64-encoded content of your keystore file. You can get this by running the following command in your terminal from the project's root directory:
+  ```bash
+  base64 -i android/upload-keystore.jks
+  ```
+  Copy the entire output and paste it as the secret's value.
+
+- **`STORE_PASSWORD`**: The password you chose for your keystore when you created it.
+
+- **`KEY_PASSWORD`**: The key password. This should be the same as the store password. 
