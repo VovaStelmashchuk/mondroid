@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+      - android_build
 
 jobs:
   build:
